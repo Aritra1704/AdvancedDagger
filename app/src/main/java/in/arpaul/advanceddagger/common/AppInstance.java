@@ -7,6 +7,9 @@ import androidx.annotation.UiThread;
 import javax.inject.Inject;
 
 import in.arpaul.advanceddagger.dependencyinjection.components.AppComponent;
+import in.arpaul.advanceddagger.dependencyinjection.components.DaggerAppComponent;
+import in.arpaul.advanceddagger.dependencyinjection.modules.ApplicationModule;
+import in.arpaul.advanceddagger.dependencyinjection.modules.PrefModule;
 import in.arpaul.advanceddagger.utils.MyLogger;
 
 public class AppInstance extends Application {
@@ -30,6 +33,11 @@ public class AppInstance extends Application {
 
     @Override
     public void onCreate() {
+        component = DaggerAppComponent
+                .builder()
+                .applicationModule(new ApplicationModule(this))
+                .prefModule(new PrefModule(this))
+                .build();
         component.inject(this);
         super.onCreate();
     }

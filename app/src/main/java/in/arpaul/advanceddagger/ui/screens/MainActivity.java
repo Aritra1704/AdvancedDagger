@@ -1,4 +1,4 @@
-package in.arpaul.advanceddagger.ui;
+package in.arpaul.advanceddagger.ui.screens;
 
 import android.os.Bundle;
 
