@@ -9,6 +9,7 @@ import in.arpaul.advanceddagger.dependencyinjection.customannotations.Applicatio
 import in.arpaul.advanceddagger.dependencyinjection.modules.ApplicationModule;
 import in.arpaul.advanceddagger.dependencyinjection.modules.ControllerModule;
 import in.arpaul.advanceddagger.dependencyinjection.modules.PrefModule;
+import in.arpaul.advanceddagger.dependencyinjection.modules.RetrofitModule;
 
 @ApplicationScope
 @Component(modules = {
@@ -23,4 +24,6 @@ public interface AppComponent {
     public Application getApplication();
 
     public ControllerComponent newControllerComponent(ControllerModule controllerModule);
+
+    public RetrofitComponent newRetrofitComponent(RetrofitModule retrofitModule);
 }

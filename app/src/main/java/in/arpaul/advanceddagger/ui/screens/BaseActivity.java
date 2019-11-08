@@ -34,7 +34,9 @@ import in.arpaul.advanceddagger.R;
 import in.arpaul.advanceddagger.common.AppConst;
 import in.arpaul.advanceddagger.common.AppInstance;
 import in.arpaul.advanceddagger.dependencyinjection.components.ControllerComponent;
+import in.arpaul.advanceddagger.dependencyinjection.components.RetrofitComponent;
 import in.arpaul.advanceddagger.dependencyinjection.modules.ControllerModule;
+import in.arpaul.advanceddagger.dependencyinjection.modules.RetrofitModule;
 import in.arpaul.advanceddagger.ui.dialogs.CustomDialog;
 import in.arpaul.advanceddagger.ui.dialogs.DialogsFactory;
 import in.arpaul.advanceddagger.ui.dialogs.DialogsManager;
@@ -95,6 +97,10 @@ public class BaseActivity extends AppCompatActivity implements CustomDialog.Dial
 //        check(!mIsControllerComponentUsed) { "must not use ControllerComponent more than once" }
         mIsControllerComponentUsed = true;
         return ((AppInstance)getApplication()).getAppComponent().newControllerComponent(new ControllerModule(this));
+    }
+
+    protected RetrofitComponent getRetrofitComponent() {
+        return ((AppInstance)getApplication()).getAppComponent().newRetrofitComponent(new RetrofitModule());
     }
 
     public boolean isGpsEnabled() {
