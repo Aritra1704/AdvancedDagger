@@ -1,4 +1,4 @@
-package in.arpaul.advanceddagger.ui.screens;
+package in.arpaul.advanceddagger.ui.screens.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 

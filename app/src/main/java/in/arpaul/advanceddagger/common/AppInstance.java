@@ -22,14 +22,6 @@ public class AppInstance extends Application {
     protected MyLogger mLogger;
 
     private AppComponent component;
-//    :  by lazy {
-//        DaggerAppComponent
-//                .builder()
-//                .applicationModule(ApplicationModule(this))
-//                .prefModule(PrefModule(this))
-//                .build()
-//    }
-
 
     @Override
     public void onCreate() {

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="in.arpaul.advanceddagger">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".common.AppInstance"
         android:allowBackup="true"
@@ -10,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.screens.LoginActivity"></activity>
-        <activity android:name=".ui.screens.SplashActivity" >
+        <activity android:name=".ui.screens.login.LoginActivity"></activity>
+        <activity android:name=".ui.screens.splash.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

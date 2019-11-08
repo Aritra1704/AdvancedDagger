@@ -1,6 +1,4 @@
-package in.arpaul.advanceddagger.ui.screens;
-
-import androidx.appcompat.app.AppCompatActivity;
+package in.arpaul.advanceddagger.ui.screens.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +10,8 @@ import java.util.ArrayList;
 
 import in.arpaul.advanceddagger.BuildConfig;
 import in.arpaul.advanceddagger.R;
+import in.arpaul.advanceddagger.ui.screens.BaseActivity;
+import in.arpaul.advanceddagger.ui.screens.login.LoginActivity;
 
 public class SplashActivity extends BaseActivity {
 
