@@ -23,7 +23,7 @@ public class ApiResponse<T> {
             if (body == null || response.code() == 204) {
                 return new ApiEmptyResponse();
             } else {
-                return new ApiSuccessResponse(body = body);
+                return new ApiSuccessResponse(body);
             }
         } else {
             String msg = response.errorBody().toString();
@@ -42,10 +42,24 @@ public class ApiResponse<T> {
     public static class ApiEmptyResponse<T> extends ApiResponse<T>{}
 
     public static class ApiErrorResponse<T> extends ApiResponse<T> {
-        public ApiErrorResponse(Throwable errorMessage){}
+        private Throwable error;
+        public ApiErrorResponse(Throwable errorMessage){
+            this.error = errorMessage;
+        }
+
+        public Throwable getError() {
+            return error;
+        }
     }
 
     public static class ApiSuccessResponse<T> extends ApiResponse<T> {
-        public ApiSuccessResponse(T body){}
+        private T body;
+        public ApiSuccessResponse(T body){
+            this.body = body;
+        }
+
+        public T getBody() {
+            return body;
+        }
     }
 }

@@ -3,8 +3,12 @@ package in.arpaul.advanceddagger.viewmodels;
 import javax.inject.Inject;
 
 import in.arpaul.advanceddagger.common.AppInstance;
+import in.arpaul.advanceddagger.dependencyinjection.components.AppComponent;
+import in.arpaul.advanceddagger.dependencyinjection.components.DaggerAppComponent;
 import in.arpaul.advanceddagger.dependencyinjection.components.RetrofitComponent;
+import in.arpaul.advanceddagger.dependencyinjection.modules.ApplicationModule;
 import in.arpaul.advanceddagger.dependencyinjection.modules.ControllerModule;
+import in.arpaul.advanceddagger.dependencyinjection.modules.PrefModule;
 import in.arpaul.advanceddagger.dependencyinjection.modules.RetrofitModule;
 import in.arpaul.advanceddagger.webservices.APICall;
 import io.reactivex.disposables.CompositeDisposable;
@@ -20,6 +24,10 @@ public class BaseRepo {
     private RetrofitComponent injector;
 
     public BaseRepo() {
+        AppComponent component = DaggerAppComponent
+                .builder()
+                .build();
+        injector = component.newRetrofitComponent(new RetrofitModule());
 //        injector = ((AppInstance)getApplication()).getAppComponent().newRetrofitComponent(new RetrofitModule());
 //        injector = DaggerRetrofitComponent
 //                .builder()
